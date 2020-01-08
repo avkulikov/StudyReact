@@ -51,7 +51,7 @@ export default class Auth extends Component {
                     touched={touched}
                     shouldValidate={!!validation}
                     errorMessage={errorMessage}
-                    onChange={event => this.onChangeHandler(event, controlName)}
+                    onChange={event => this.onChangeHandler(event.target.value, controlName)}
                 />
             )
         })
@@ -89,11 +89,11 @@ export default class Auth extends Component {
     }
 
 
-    onChangeHandler = (event, controlName) => {
+    onChangeHandler = (value, controlName) => {
         const formControls = {...this.state.formControls}
         const control = {...formControls[controlName]}
 
-        control.value = event.target.value
+        control.value = value
         control.touched = true
         control.valid = this.isValid(control.value, control.validation)
 

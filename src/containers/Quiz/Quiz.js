@@ -19,7 +19,6 @@ export default class Quiz extends React.Component {
                     {text: 'Синий', id: 2},
                     {text: 'Красный', id: 3},
                     {text: 'Зеленый', id: 4},
-                    {text: 'Желтый', id: 5},
                 ]
             },
             {
@@ -31,7 +30,6 @@ export default class Quiz extends React.Component {
                     {text: '1702', id: 2},
                     {text: '1705', id: 3},
                     {text: '1703', id: 4},
-                    {text: '1710', id: 5},
                 ]
             }
         ],
