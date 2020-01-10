@@ -1,38 +1,35 @@
 import React, {Component} from 'react'
 import {Button} from '../../components/Ui/Button/Button'
 import {Input} from '../../components/Ui/Input/Input'
-import is from 'is_js'
 import classes from './Auth.module.css'
+import {createControl, onChangeHandler} from '../../form/formFrameWork'
 
 export default class Auth extends Component {
+    constructor (props) {
+        super(props)
+
+        this.onChangeHandler = onChangeHandler.bind(this)
+    }
 
     state = {
         isFormValid: false,
         formControls: {
-            email: {
-                value: '',
+            email: createControl({
                 type: 'email',
                 label: 'Email',
                 errorMessage: 'Введите корректный email',
-                valid: false,
-                touched: false,
-                validation: {
-                    required: true,
-                    email: true
-                }
-            },
-            password: {
-                value: '',
+            }, {
+                required: true,
+                email: true
+            }),
+            password: createControl({
                 type: 'password',
                 label: 'Пароль',
                 errorMessage: 'Введите корректный пароль',
-                valid: false,
-                touched: false,
-                validation: {
-                    required: true,
-                    minLength: 6
-                }
-            }
+            }, {
+                required: true,
+                minLength: 6
+            })
         }
     }
 
@@ -63,50 +60,7 @@ export default class Auth extends Component {
     registerHandler = () => {
 
     }
-
     submitHandler = event => event.preventDefault()
-
-    isValid = (value, validation) => {
-        if (!validation) {
-            return true
-        }
-
-        let isValid = true
-
-        if (validation.required) {
-            isValid = value.trim() !== '' && isValid
-        }
-
-        if (validation.email) {
-            isValid = is.email(value) && isValid
-        }
-
-        if (validation.minLength) {
-            isValid = is.above(value.length, validation.minLength) && isValid
-        }
-
-        return isValid
-    }
-
-
-    onChangeHandler = (value, controlName) => {
-        const formControls = {...this.state.formControls}
-        const control = {...formControls[controlName]}
-
-        control.value = value
-        control.touched = true
-        control.valid = this.isValid(control.value, control.validation)
-
-        formControls[controlName] = control
-
-        let isFormValid = true
-
-        Object.keys(formControls).forEach(name => {
-            isFormValid = formControls[name].valid && isFormValid
-        })
-
-        this.setState({formControls, isFormValid})
-    }
 
 
     render() {

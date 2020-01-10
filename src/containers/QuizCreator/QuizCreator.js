@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Button} from '../../components/Ui/Button/Button'
 import {Input} from '../../components/Ui/Input/Input'
-import {createControl} from '../../form/formFrameWork'
+import {createControl, onChangeHandler} from '../../form/formFrameWork'
 import {Select} from '../../components/Ui/Select/Select'
 import classes from './QuizCreator.module.css'
 
@@ -28,9 +28,16 @@ function createFormControls() {
 }
 
 export default class QuizCreator extends Component {
+    constructor (props) {
+        super(props)
+
+
+        this.onChangeHandler = onChangeHandler.bind(this)
+    }
 
     state = {
         quiz: [],
+        isFormValid: false,
         rightAnswerId: 1,
         formControls: createFormControls()
     }
@@ -41,25 +48,6 @@ export default class QuizCreator extends Component {
 
     createQuizHandler = (params) => {
 
-    }
-
-    onChangeHandler = (value, controlName) => {
-        /* const formControls = {...this.state.formControls}
-        const control = {...formControls[controlName]}
-
-        control.value = value
-        control.touched = true
-        control.valid = this.isValid(control.value, control.validation)
-
-        formControls[controlName] = control
-
-        let isFormValid = true
-
-        Object.keys(formControls).forEach(name => {
-            isFormValid = formControls[name].valid && isFormValid
-        })
-
-        this.setState({formControls, isFormValid}) */
     }
 
     selectChangeHandler = event => this.setState({rightAnswerId: +event.target.value})
@@ -79,12 +67,13 @@ export default class QuizCreator extends Component {
                     touched={touched}
                     shouldValidate={!!validation}
                     errorMessage={errorMessage}
-                    onChange={event => this.onChangeHandler(event, controlName)}
+                    onChange={event => this.onChangeHandler(event.target.value, controlName)}
                 />
                 {index === 0 && <hr />}
             </ React.Fragment>
         })
     }
+
 
     render() {
         const select = <Select
@@ -112,12 +101,14 @@ export default class QuizCreator extends Component {
                         <Button
                             type="primary"
                             onClick={this.addQuestionHandler}
+                            disabled={!this.state.isFormValid}
                         >
                             Добавить вопрос
                         </Button>
                         <Button
                             type="success"
                             onClick={this.createQuizHandler}
+                            disabled={this.state.quiz.length === 0}
                         >
                             Создать тест
                         </Button>
