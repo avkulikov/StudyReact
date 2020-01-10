@@ -43,7 +43,29 @@ export default class QuizCreator extends Component {
     }
 
     addQuestionHandler = (params) => {
+        const quiz = this.state.quiz.concat()
+        const id = quiz.length + 1
+        const {formControls: {question, option1, option2, option3, option4}, rightAnswerId} = this.state
+        const questionItems = {
+            question: question.value,
+            id,
+            rightAnswerId,
+            answers: [
+                {text: option1.value, id: option1.id},
+                {text: option2.value, id: option2.id},
+                {text: option3.value, id: option3.id},
+                {text: option4.value, id: option4.id},
+            ]
+        }
 
+        quiz.push(questionItems)
+
+        this.setState({
+            quiz,
+            isFormValid: false,
+            rightAnswerId: 1,
+            formControls: createFormControls()
+        })
     }
 
     createQuizHandler = (params) => {
@@ -87,7 +109,7 @@ export default class QuizCreator extends Component {
                 {text: 4, value: 4}
             ]}
         />
-
+        
         return (
             <div className={classes.QuizCreator}>
                 <div>
