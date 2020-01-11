@@ -7,6 +7,7 @@ import classes from './QuizList.module.css'
 
 import {fetchQuizes} from '../../store/actions/quiz'
 
+
 class QuizList extends Component {
 
     componentDidMount() {

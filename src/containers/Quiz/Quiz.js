@@ -12,6 +12,7 @@ import {
     quizRetry
 } from '../../store/actions/quiz'
 
+
 class Quiz extends React.Component {
 
     componentDidMount() {

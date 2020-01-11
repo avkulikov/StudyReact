@@ -1,7 +1,8 @@
 import React from 'react'
-import classes from './FinishedQuiz.module.css'
+
 import {Button} from '../Ui/Button/Button'
 import {Link} from 'react-router-dom'
+import classes from './FinishedQuiz.module.css'
 
 const FinishedQuiz = props => {
     const successCount = Object.keys(props.results).filter(key => props.results[key] === 'success')

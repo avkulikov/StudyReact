@@ -1,6 +1,7 @@
 import React from 'react'
-import classes from './ActiveQuiz.module.css'
+
 import AnswersList from './AnswersList/AnswersList'
+import classes from './ActiveQuiz.module.css'
 
 export default function ActiveQuiz(props) {
     return <div className={classes.ActiveQuiz}>

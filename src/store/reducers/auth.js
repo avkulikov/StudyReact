@@ -22,6 +22,7 @@ export default function authReducer(state = initialState, action) {
             return {
                 ...state,
                 token: action.token,
+                error: null,
                 isFetching: false
             }
         case AUTH_FETCH_ERROR:
@@ -33,7 +34,8 @@ export default function authReducer(state = initialState, action) {
         case AUTH_LOGOUT:
             return {
                 ...state,
-                token: null
+                token: null,
+                error: null
             }
 
         default:
