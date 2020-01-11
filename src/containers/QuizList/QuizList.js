@@ -15,6 +15,17 @@ class QuizList extends Component {
     }
 
     renderQuizes = () => {
+        
+        if (this.props.quizes.length === 0) {
+
+            return <ul><li>
+                <NavLink
+                    to={`/quiz-creator`}
+                >
+                    Тестов нет. Но вы держитесь. \/(-_-)\/
+                </NavLink>
+            </li></ul>
+        }
 
         return this.props.quizes.map((quiz, index) => {
             return (

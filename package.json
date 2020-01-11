@@ -2,6 +2,7 @@
   "name": "quiz-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://study-react-quiz.firebaseapp.com/",
   "repository": {
     "url": "https://github.com/avkulikov/StudyReact.git"
   },

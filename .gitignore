@@ -8,6 +8,9 @@
 #editors
 .vscode
 
+#firebase
+.firebase
+
 # testing
 /coverage
 
