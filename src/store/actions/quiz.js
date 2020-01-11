@@ -1,10 +1,10 @@
 import axios from '../../axios/axios.quiz'
 
 import {
-    FETCH_QUIZES_START,
-    FETCH_QUIZES_SUCCESS,
-    FETCH_QUIZES_ERROR,
-    FETCH_QUIZ_SUCCESS,
+    QUIZ_QUIZES_FETCH_START,
+    QUIZ_QUIZES_FETCH_SUCCESS,
+    QUIZ_QUIZES_FETCH_ERROR,
+    QUIZ_FETCH_SUCCESS,
     QUIZ_SET_STATE,
     QUIZ_FINISH,
     QUIZ_NEXT_QUESTION,
@@ -49,27 +49,27 @@ export function fetchQuizById(quizId) {
 
 export function fetchQuizesStart() {
     return {
-        type: FETCH_QUIZES_START
+        type: QUIZ_QUIZES_FETCH_START
     }
 }
 
 export function fetchQuizesSuccess(quizes) {
     return {
-        type: FETCH_QUIZES_SUCCESS,
+        type: QUIZ_QUIZES_FETCH_SUCCESS,
         quizes
     }
 }
 
 export function fetchQuizSuccess(quiz) {
     return {
-        type: FETCH_QUIZ_SUCCESS,
+        type: QUIZ_FETCH_SUCCESS,
         quiz
     }
 }
 
 export function fetchQuizesError(error) {
     return {
-        type: FETCH_QUIZES_ERROR,
+        type: QUIZ_QUIZES_FETCH_ERROR,
         error
     }
 }

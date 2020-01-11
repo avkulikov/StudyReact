@@ -6,7 +6,11 @@ import FinishedQuiz from '../../components/FinishedQuiz/FinishedQuiz'
 import {Loader} from '../../components/Ui/Loader/Loader'
 import classes from './Quiz.module.css'
 
-import {fetchQuizById, quizAnswerClick, quizRetry} from '../../store/actions/quiz'
+import {
+    fetchQuizById,
+    quizAnswerClick,
+    quizRetry
+} from '../../store/actions/quiz'
 
 class Quiz extends React.Component {
 

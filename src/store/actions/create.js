@@ -1,5 +1,11 @@
 import axios from '../../axios/axios.quiz'
-import {CREATE_QUIZ_QUESTION, CREATE_QUIZ_RESET, CREATE_QUIZ_FETCH_START, CREATE_QUIZ_FETCH_SUCCESS, CREATE_QUIZ_FETCH_ERROR} from './actionTypes'
+import {
+    CREATE_QUIZ_QUESTION,
+    CREATE_QUIZ_RESET,
+    CREATE_QUIZ_FETCH_START,
+    CREATE_QUIZ_FETCH_SUCCESS,
+    CREATE_QUIZ_FETCH_ERROR
+} from './actionTypes'
 
 export function createQuizQuestion(item) {
     return {

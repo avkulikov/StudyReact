@@ -1,4 +1,10 @@
-import {CREATE_QUIZ_QUESTION, CREATE_QUIZ_RESET, CREATE_QUIZ_FETCH_START, CREATE_QUIZ_FETCH_SUCCESS, CREATE_QUIZ_FETCH_ERROR} from "../actions/actionTypes";
+import {
+    CREATE_QUIZ_QUESTION,
+    CREATE_QUIZ_RESET,
+    CREATE_QUIZ_FETCH_START,
+    CREATE_QUIZ_FETCH_SUCCESS,
+    CREATE_QUIZ_FETCH_ERROR
+} from "../actions/actionTypes";
 
 const initialState = {
     quiz: [],
