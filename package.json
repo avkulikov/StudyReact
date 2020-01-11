@@ -1,7 +1,19 @@
 {
-  "name": "components",
+  "name": "quiz-app",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "url": "https://github.com/avkulikov/StudyReact.git"
+  },
+  "engines": {
+    "node": ">=13.6.0",
+    "yarn": ">=1.21.1"
+  },
+  "author": {
+    "email": "atem.job.kulikov@gmail.com",
+    "name": "Artem Kulikov",
+    "url": "https://github.com/avkulikov"
+  },
   "dependencies": {
     "@babel/core": "7.7.4",
     "@svgr/webpack": "4.3.3",
