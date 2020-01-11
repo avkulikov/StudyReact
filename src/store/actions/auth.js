@@ -5,7 +5,6 @@ import {
     AUTH_FETCH_START,
     AUTH_FETCH_SUCCESS,
     AUTH_FETCH_ERROR,
-    AUTH_AUTOLOGIN
 } from './actionTypes'
 
 export function auth(email, password, isLogin) {
@@ -55,17 +54,13 @@ export function autoLogIn() {
         } else {
             const expirationDate = new Date(localStorage.getItem('expirationDate'))
 
-            if (expirationDate <= new Date) {
+            if (expirationDate <= new Date()) {
                 dispatch(logOut())
             }
 
             dispatch(authSuccess(token))
             dispatch(autoLogOut((expirationDate.getTime() - new Date().getTime()) / 1000))
         }
-    }
-
-    return {
-        type: AUTH_AUTOLOGIN
     }
 }
 
