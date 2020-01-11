@@ -3,6 +3,7 @@ import {Button} from '../../components/Ui/Button/Button'
 import {Input} from '../../components/Ui/Input/Input'
 import {createControl, onChangeHandler} from '../../form/formFrameWork'
 import {Select} from '../../components/Ui/Select/Select'
+import axios from '../../axios/axios.quiz'
 import classes from './QuizCreator.module.css'
 
 function createOptionControl(id) {
@@ -68,8 +69,19 @@ export default class QuizCreator extends Component {
         })
     }
 
-    createQuizHandler = (params) => {
+    createQuizHandler = async event => {
+            try {
+                await axios.post('quizes.json', this.state.quiz)
 
+                this.setState({
+                    quiz: [],
+                    isFormValid: false,
+                    rightAnswerId: 1,
+                    formControls: createFormControls()
+                })
+            } catch (error) {
+                console.error(error)
+            }
     }
 
     selectChangeHandler = event => this.setState({rightAnswerId: +event.target.value})
@@ -109,7 +121,7 @@ export default class QuizCreator extends Component {
                 {text: 4, value: 4}
             ]}
         />
-        
+
         return (
             <div className={classes.QuizCreator}>
                 <div>
