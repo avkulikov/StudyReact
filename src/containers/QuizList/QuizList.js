@@ -3,8 +3,8 @@ import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import {Loader} from '../../components/Ui/Loader/Loader'
-
 import classes from './QuizList.module.css'
+
 import {fetchQuizes} from '../../store/actions/quiz'
 
 class QuizList extends Component {
@@ -36,7 +36,7 @@ class QuizList extends Component {
             <div className={classes.QuizList}>
                 <div>
                     <h1>Список тестов</h1>
-                    {this.props.isLoading && this.props.quizes.length !== 0
+                    {this.props.isLoading && this.props.quizes.length === 0
                         ? <Loader />
                         : <ul>{this.renderQuizes()}</ul>}
 
