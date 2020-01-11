@@ -27,7 +27,7 @@ function isValid(value, validation) {
     }
 
     if (validation.minLength) {
-        isValid = is.above(value.length, validation.minLength) && isValid
+        isValid = is.above(value.length, validation.minLength - 1) && isValid
     }
 
     return isValid
